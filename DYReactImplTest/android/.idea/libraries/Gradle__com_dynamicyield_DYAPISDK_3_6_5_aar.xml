@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.dynamicyield:DYAPISDK:3.6.5@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/57a77bb8fe153bfcd0200defc921e3f6/jetified-DYAPISDK-3.6.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/57a77bb8fe153bfcd0200defc921e3f6/jetified-DYAPISDK-3.6.5/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
