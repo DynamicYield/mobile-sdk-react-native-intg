@@ -8,35 +8,37 @@
 
 ## iOS Integration
 
+1. Create a ReactNative project or open your project
 1. Navigate into folder 'ios' inside your project's path
-2. add pod ```'Dynamic-Yield-iOS-SDK'``` to the end of the pod list inside ```Podfile```
-3. run ```pod install```
-4. open your project ```.xcworkspace``` file
-5. copy ```DYReactImplTest/ios/DYReact.m``` & ```DYReactImplTest/ios/DYReact.h``` into your project
+1. add pod ```'Dynamic-Yield-iOS-SDK'``` to the end of the pod list inside ```Podfile```
+1. run ```pod install```
+1. open your project ```.xcworkspace``` file
+1. clone this repo
+1. copy ```DYReactImplTest/ios/DYReact.m``` & ```DYReactImplTest/ios/DYReact.h``` into your project
 
 
 ## Android Integration
 
+1. Create a ReactNative project or open your project
 1. Start Android studio and open the project that inside the folder
 ```android``` inside your project's path
-2. add ```implementation ('com.dynamicyield:DYAPISDK:+'){ transitive = false;}```
+1. add ```implementation ('com.dynamicyield:DYAPISDK:+'){ transitive = false;}```
 to the end of the dependencies list inside the ```build.gradle``` file of your app module
-3. Sync the gradle file
-4. copy ```DYReactImplTest/android/app/src/main/java/com/dyreactimpltest/bridge/DYReact.java``` & ```DYReactImplTest/android/app/src/main/java/com/dyreactimpltest/bridge/DYReactPackage.java``` into your project
-5. add ```packages.add(new DYReactPackage());``` in the ```getPackages``` method of the ```MainApplication.java``` file 
+1. Sync the gradle file
+1. clone this repo
+1. copy ```DYReactImplTest/android/app/src/main/java/com/dyreactimpltest/bridge/DYReact.java``` & ```DYReactImplTest/android/app/src/main/java/com/dyreactimpltest/bridge/DYReactPackage.java``` into your project
+1. add ```packages.add(new DYReactPackage());``` in the ```getPackages``` method of the ```MainApplication.java``` file 
 
 
 ## React Native Usage
 
 
-1. Add 
-  ```js
-  import {NativeModules} from 'react-native';
-  const DYReact = NativeModules.DYReact;
-   ```
-   to files that will use DY SDK
-
-2. add the following code sample to your default class App:
+1. Add the following code sample to files that will use DY SDK:
+      ```js
+      import {NativeModules} from 'react-native';
+      const DYReact = NativeModules.DYReact;
+      ```
+2. Add the following code sample to your default class App:
       ```js
       export default class App extends Component {
         constructor() {
