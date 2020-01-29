@@ -63,7 +63,10 @@ to the end of the dependencies list inside the ```build.gradle``` file of your a
 | ------------- |:-------------:| -----:|
 | DYReact.setSecret(secretKey,callback)      | Initiate DYSDK | secretKey: String, callback: function(state: ExperimentsState) |
 | DYReact.identifyUser(userData, callback)      | identify user for cross platform usage | userData: JSONObject, callback: function(err: JSONObject) |
-
+| DYReact.consentOptIn() | Indicates that a user has consented to allow Dynamic Yield to collect and use their personal data. | None |
+| DYReact.consentOptOut() | Indicates that a user does not want Dynamic Yield to collect and use their personal data.| None|
+| DYReact.setEvaluator(evaluatorID,values,persistent,callback) | Sets the evaluator value| evaluatorID: String, values: [String], persistent: boolean, callback: function() |
+| DYReact.getSmartVariable(smartVariableID,defaultValue,callback) | Gets the value assigned to a variable | smartVariableID: String, defaultValue: String, callback: function(variableName, value) |
 
 
 ## Author
