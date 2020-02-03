@@ -65,8 +65,14 @@ to the end of the dependencies list inside the ```build.gradle``` file of your a
 | DYReact.identifyUser(userData, callback)      | identify user for cross platform usage | userData: JSONObject, callback: function(err: JSONObject) |
 | DYReact.consentOptIn() | Indicates that a user has consented to allow Dynamic Yield to collect and use their personal data. | None |
 | DYReact.consentOptOut() | Indicates that a user does not want Dynamic Yield to collect and use their personal data.| None|
+| DYReact.trackEvent(eventName, eventParams, callback)      | Reports an event to the Dynamic Yield server | eventName: String, eventParams: JSONObject, callback: function(name: String) |
+| DYReact.pageView(pageUniqueID, context, callback)      | Reports an application page view to the Dynamic Yield server | pageUniqueID: String, context: JSONObject, callback: function(name: String) |
 | DYReact.setEvaluator(evaluatorID,values,persistent,callback) | Sets the evaluator value| evaluatorID: String, values: [String], persistent: boolean, callback: function() |
 | DYReact.getSmartVariable(smartVariableID,defaultValue,callback) | Gets the value assigned to a variable | smartVariableID: String, defaultValue: String, callback: function(variableName, value) |
+| DYReact.sendRecommendationRequest(widgetID,context,callback) | Get the recommended items for a given widget id | widgetID: String, context: JSONObject, callback: function(results: [JSONObject], widgetID: String) |
+| DYReact.trackRecomItemClick(widgetID, sku) | Reports the identifier of a recommended item tapped by the user | widgetID: String, sku: String |
+| DYReact.trackRecomItemRealImpression(widgetID, skus) | Reports a list of recommended items visible to the user | widgetID: String, skus: [String]) |
+
 
 
 ## Author
