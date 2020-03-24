@@ -40,6 +40,8 @@ export default class App extends Component {
         ? '<ios_section_secret_key>'
         : '<android_section_secret_key>';
 
+    DYReact.setUseEuropeanServer(false);
+
     DYReact.setSecret(secretKey, state => {
       console.log(`returned with state: ${state} `);
       this.setState({DYReturned: true});
