@@ -8,6 +8,7 @@ import com.dynamicyield.dyapi.DYApi;
 import com.dynamicyield.dyapi.DYApiResults.DYEvaluatorSet;
 import com.dynamicyield.dyapi.DYApiResults.DYSetSecretResult;
 import com.dynamicyield.dyapi.DYApiResults.DYTrackResult;
+import com.dynamicyield.engine.DYCustomSettings;
 import com.dynamicyield.engine.DYPageContext;
 import com.dynamicyield.engine.DYRecommendationListenerItf;
 import com.dynamicyield.state.DYExperimentsState;
@@ -150,6 +151,13 @@ public class DYReact extends ReactContextBaseJavaModule{
     @ReactMethod
     public void trackRecomItemRealImpression(String widgetID, ReadableArray itemIds) {
         DYApi.getInstance().trackRecomItemRealImpression(widgetID,itemIds.toArrayList().toArray(new String[0]));
+    }
+
+    @ReactMethod
+    public void setUseEuropeanServer(boolean on){
+        DYCustomSettings settings = new DYCustomSettings();
+        settings.useEuropeanServer(on);
+        DYApi.setCustomSettings(settings);
     }
 
     private DYPageContext convertReadableMapToDYContext(ReadableMap context, Callback callback){

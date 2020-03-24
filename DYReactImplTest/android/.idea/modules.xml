@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DYReactImplTest.iml" filepath="$PROJECT_DIR$/DYReactImplTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dyapi/dyapi.iml" filepath="$PROJECT_DIR$/dyapi/dyapi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DYReactImplTest.iml" filepath="$PROJECT_DIR$/DYReactImplTest.iml" group="DYReactImplTest" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="DYReactImplTest/app" />
+      <module fileurl="file://$PROJECT_DIR$/dyapi/dyapi.iml" filepath="$PROJECT_DIR$/dyapi/dyapi.iml" group="DYReactImplTest/dyapi" />
     </modules>
   </component>
 </project>

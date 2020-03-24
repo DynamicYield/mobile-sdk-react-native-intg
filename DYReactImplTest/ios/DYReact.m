@@ -77,8 +77,11 @@ RCT_EXPORT_METHOD(trackRecomItemRealImpression:(NSString* _Nonnull)widgetID item
 }
 
 RCT_EXPORT_METHOD(trackRecomItemClick:(NSString* _Nonnull)widgetID itemID:(NSString* _Nonnull)itemID){
-  NSLog(@"idantest trackRecomItemClicktrackRecomItemClick");
   [[DYApi getInstance] TrackRecomItemClick:widgetID andItemID:itemID];
+}
+
+RCT_EXPORT_METHOD(setUseEuropeanServer:(BOOL)on){
+  [[DYApi getInstance] setUseEuropeanServer:on];
 }
 
 @end

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     height: 150,
   },
 });
-
+import {Platform} from 'react-native';
 export default class App extends Component {
   constructor() {
     super();
@@ -34,7 +34,13 @@ export default class App extends Component {
       image_containers: [],
       DYReturned: false,
     };
-    DYReact.setSecret('569bb4b05f49228f315e133c', state => {
+
+    const secretKey =
+      Platform.OS === 'ios'
+        ? '<ios_section_secret_key>'
+        : '<android_section_secret_key>';
+
+    DYReact.setSecret(secretKey, state => {
       console.log(`returned with state: ${state} `);
       this.setState({DYReturned: true});
     });
@@ -75,11 +81,17 @@ export default class App extends Component {
   };
 
   callIdentifyUser = () => {
-    DYReact.identifyUser({cuid: '12345678'}, err => {
-      if (err) {
-        console.log(`got error: ${err}`);
-      }
-    });
+    DYReact.identifyUser(
+      {
+        uid: 'c0e93cee791b35af528a825f6476e8108e5f03e481ee39800a31a75559cdba2e', //SHA 256 hashed email of the plain text email in lower case
+        type: 'he',
+      },
+      err => {
+        if (err) {
+          console.log(`got error: ${err}`);
+        }
+      },
+    );
   };
 
   callConsentOptOut = () => {
@@ -98,6 +110,7 @@ export default class App extends Component {
 
   callSmartVariable = () => {
     DYReact.getSmartVariable('testSticky', 'AppDefValue', (varName, value) => {
+      this.testAsync();
       console.log(`smartVar: ${varName} returned ${value}`);
       this.callRCOM(value);
     });
@@ -146,6 +159,33 @@ export default class App extends Component {
       if (name) {
         console.log(`event ${name} processed`);
       }
+    });
+  };
+
+  testAsync = () => {
+    function asyncSmartVariable(variableName, defaultValue) {
+      return new Promise(function(reslove) {
+        DYReact.getSmartVariable(variableName, defaultValue, function(
+          variableName,
+          value,
+        ) {
+          reslove(value);
+        });
+      });
+    }
+
+    Promise.all([
+      asyncSmartVariable('testSticky', 'Fallback Text'),
+      asyncSmartVariable('testSticky', '15px'),
+      asyncSmartVariable('testSticky', '#ffff'),
+    ]).then(function(dyValues) {
+      const topBanner = {
+        bottomHeaderText: dyValues[0],
+        topHeaderSize: dyValues[1],
+        topHeaderColor: dyValues[2],
+      };
+
+      console.log('topbanner: ' + JSON.stringify(topBanner));
     });
   };
 
