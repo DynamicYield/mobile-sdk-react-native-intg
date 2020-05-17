@@ -51,6 +51,11 @@ RCT_EXPORT_METHOD(setEvaluator:(NSString* _Nonnull)evaluatorID forParams:(NSArra
   }];
 }
 
+RCT_EXPORT_METHOD(getSmartObjectData:(id _Nonnull)smartObjectID callback:(RCTResponseSenderBlock)callback){
+  id result = [[DYApi getInstance] getSmartObjectData:smartObjectID];
+  callback(@[smartObjectID,result]);
+}
+
 RCT_EXPORT_METHOD(getSmartVariable:(NSString* _Nonnull)varName defaultValue:(id _Nullable)defaultValue callback:(RCTResponseSenderBlock)callback){
   id result = [[DYApi getInstance] getSmartVariable:varName defaultValue:defaultValue];
   callback(@[varName,result]);
